@@ -14,12 +14,14 @@ The code uses Python libraries such as itertools, random, datetime, sys, and os 
 # Password generator.
 
 To generate passwords, you only need to select option 1, which will take you to the password generator. You must input the words, letters, or numbers you want to combine or "concatenate", and to finish the character input, type "done". Then, you must specify the number of columns in which the combinations will be limited. Finally, everything will be saved in a text file as a password "
+
 /IMG/pass.PNG
 
 # Identity generator.
 
 Here you will only need to select option 2, and it will automatically generate random and fake identities that you can use to create passwords together with the password generator, fill databases, obtain a quick identity or give it any other use.
-/IMG/user.PNG
+
+/IMG/user.png
 
 # Install:
 ```bash
