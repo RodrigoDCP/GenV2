@@ -9,7 +9,7 @@ print("""
 | |  _ / _ \ '_ \ \ / / __) |
 | |_| |  __/ | | \ V / / __/ 
  \____|\___|_| |_|\_/ |_____|
- 			by The Coños
+ 			by Cañas
 """)
 def generate_combinations(words, n):
     # Generate all possible combinations
