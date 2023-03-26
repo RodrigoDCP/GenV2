@@ -3,14 +3,26 @@ import random
 from datetime import datetime, timedelta
 import sys
 import os
-print("""
+from colorama import init
+from termcolor import colored
+import time
+
+# Inicializar colorama
+init()
+
+# Cambiar el color del texto de nuevo y esperar un segundo
+print(colored('Cargando....', 'yellow'))
+time.sleep(1)
+os.system('clear')
+print(colored("""
   ____                 ____  
  / ___| ___ _ ____   _|___ \ 
 | |  _ / _ \ '_ \ \ / / __) |
 | |_| |  __/ | | \ V / / __/ 
  \____|\___|_| |_|\_/ |_____|
  			by Cañas
-""")
+ 				version - 1.2
+""", "green"))
 def generate_combinations(words, n):
     # Generate all possible combinations
     combinations = list(itertools.permutations(words, n))
@@ -24,7 +36,12 @@ def generate_combinations_and_save(words, n):
     with open('combinations.txt', 'w') as f:
         for combination in combinations:
             f.write("".join(combination) + "\n")
-    print("Las combinaciones se han guardado en combinations.txt")
+    print(colored("------------------------------------------", 'magenta'))
+    print(colored("Cargando....", 'yellow'))
+    time.sleep(2)
+    print(colored("Las combinaciones se han guardado en combinations.txt", 'yellow'))
+    time.sleep(3)
+    os.system('clear')
 
 
 def generate_passwords():
@@ -34,7 +51,8 @@ def generate_passwords():
         if word == 'done':
             break
         words.append(word)
-
+        print(colored("------------------------------------------", 'cyan'))
+	
     n = int(input("Introduce la cantidad de columnas: "))
 
     generate_combinations_and_save(words, n)
@@ -59,29 +77,16 @@ def generate_identities():
         print("Fecha de nacimiento:", fecha_nacimiento.strftime("%d/%m/%Y"))
         print("")
 
-"""
-def generate_identities():
-    # Leer nombres y apellidos de archivos de texto
-    with open("nombres.txt", "r") as f:
-        nombres = f.read().splitlines()
-    with open("apellidos.txt", "r") as f:
-        apellidos = f.read().splitlines()
-
-    # Generar 10 nombres aleatorios
-    for i in range(10):
-        nombre = random.choice(nombres)
-        apellido = random.choice(apellidos)
-        print(nombre + " " + apellido)
-        print("")
-"""
-
 def menu():
     while True:
-        print("[1] Generar contraseñas")
-        print("[2] Generar identidades")
-        print("[3] Limpiar consola")
-        print("[4] salir")
+        print(colored('''------------------------------------------''', 'blue'))
+        print(colored("[1]", 'yellow'), "Generar contraseñas")
+        print(colored("[2]", 'yellow'), "Generar identidades")
+        print(colored("[3]", 'yellow'), "Limpiar consola")
+        print(colored("[4]", 'yellow'), "salir")
+        print(colored("------------------------------------------", 'blue'))
         opcion = input("Selecciona una opción: ")
+        os.system('clear')
 
         if opcion == "1":
             generate_passwords()
@@ -94,8 +99,10 @@ def menu():
         elif opcion == "4":
             sys.exit()
         
-        else:
-            print("Opción no válida")
+        else:  
+            print(colored("Opción no válida....", 'red'))
+            time.sleep(1)
+            os.system('clear')
 
 
 if __name__ == '__main__':
