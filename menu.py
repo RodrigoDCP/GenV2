@@ -97,6 +97,9 @@ def menu():
         elif opcion == "3":
             os.system('clear')
         elif opcion == "4":
+            print(colored("Saliendo...", 'yellow'))
+            time.sleep(2)
+            os.system('clear')
             sys.exit()
         
         else:  
