@@ -21,7 +21,7 @@ print(colored("""
 | |_| |  __/ | | \ V / / __/ 
  \____|\___|_| |_|\_/ |_____|
  			by Cañas
- 				version - 1.2
+ 				version - 1.3
 """, "green"))
 def generate_combinations(words, n):
     # Generate all possible combinations
@@ -77,13 +77,27 @@ def generate_identities():
         print("Fecha de nacimiento:", fecha_nacimiento.strftime("%d/%m/%Y"))
         print("")
 
+def aleatoreo():
+	palabra = input(colored("Ingresa la palabra: ", 'green'))
+	print(colored("------------------------------------------", 'blue'))
+	variaciones = list(itertools.product(*[(c.lower(), c.upper()) for c in palabra]))
+	
+	with open('contraseñasNew.txt', 'w') as f:
+		for variation in variaciones:
+			password = ''.join(variation)
+			f.write(password + '\n')
+	print(colored("Contraseñas guardadas..."))
+
+
 def menu():
     while True:
         print(colored('''------------------------------------------''', 'blue'))
-        print(colored("[1]", 'yellow'), "Generar contraseñas")
-        print(colored("[2]", 'yellow'), "Generar identidades")
-        print(colored("[3]", 'yellow'), "Limpiar consola")
-        print(colored("[4]", 'yellow'), "salir")
+        print(colored("[1]", 'yellow'), "Generar contraseñas concatenando")
+        print(colored("[2]", 'yellow'), "generar contraseñas aleatorizando")
+        print(colored("[3]", 'yellow'), "Generar identidades")        
+        print(colored("----------------------", 'yellow'))
+        print(colored("[c]", 'magenta'), "Limpiar consola")
+        print(colored("[0]", 'magenta'), "salir")
         print(colored("------------------------------------------", 'blue'))
         opcion = input("Selecciona una opción: ")
         os.system('clear')
@@ -92,11 +106,12 @@ def menu():
             generate_passwords()
             menu()
         elif opcion == "2":
-            generate_identities()
-            menu()
+        	aleatoreo()
         elif opcion == "3":
+            generate_identities()     
+        elif opcion == "c":
             os.system('clear')
-        elif opcion == "4":
+        elif opcion == "0":
             print(colored("Saliendo...", 'yellow'))
             time.sleep(2)
             os.system('clear')
@@ -106,7 +121,7 @@ def menu():
             print(colored("Opción no válida....", 'red'))
             time.sleep(1)
             os.system('clear')
-
+            menu()
 
 if __name__ == '__main__':
     menu()
