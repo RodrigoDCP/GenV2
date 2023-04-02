@@ -93,13 +93,13 @@ def menu():
     while True:
         print(colored('''------------------------------------------''', 'blue'))
         print(colored("[1]", 'yellow'), "Generar contraseñas concatenando")
-        print(colored("[2]", 'yellow'), "generar contraseñas aleatorizando")
+        print(colored("[2]", 'yellow'), "Generar contraseñas aleatorizando")
         print(colored("[3]", 'yellow'), "Generar identidades")        
         print(colored("----------------------", 'yellow'))
         print(colored("[c]", 'magenta'), "Limpiar consola")
         print(colored("[0]", 'magenta'), "salir")
         print(colored("------------------------------------------", 'blue'))
-        opcion = input("Selecciona una opción: ")
+        opcion = input(colored("Selecciona una opción: ", 'green'))
         os.system('clear')
 
         if opcion == "1":
